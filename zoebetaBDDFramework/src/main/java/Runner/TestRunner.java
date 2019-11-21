@@ -9,6 +9,7 @@ import cucumber.api.junit.Cucumber;
 		features ="D:\\anil\\Anil QA-TE_A\\test_data\\eclips\\java devlop\\zoebetaBDDFramework\\src\\main\\java\\features"
 		,glue= {"stepDefination"}
 		
+		
 		)
 
 public class TestRunner {
