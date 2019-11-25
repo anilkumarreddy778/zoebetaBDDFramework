@@ -1,6 +1,6 @@
 Feature: pigdom beta Login Feature
 
-Scenario: pigdom beta Login scenario
+Scenario: zoe_beta beta Login scenario
 
 Given User is already on login page
 When title of login page is zoemenu

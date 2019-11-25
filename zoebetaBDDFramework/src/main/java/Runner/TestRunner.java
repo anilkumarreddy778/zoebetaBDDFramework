@@ -6,10 +6,9 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features ="D:\\anil\\Anil QA-TE_A\\test_data\\eclips\\java devlop\\zoebetaBDDFramework\\src\\main\\java\\features"
+		features = {"D:/anil/Anil QA-TAE/test_data/mygit/zoebetaBDDFramework/src/main/java/features/login.feature"}
 		,glue= {"stepDefination"}
-		
-		
+	,monochrome= true
 		)
 
 public class TestRunner {
