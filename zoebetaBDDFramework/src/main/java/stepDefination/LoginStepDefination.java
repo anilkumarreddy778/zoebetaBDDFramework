@@ -23,21 +23,31 @@ import propertyFile.BrowserGenericfile;
 
 public class LoginStepDefination 
 {
-	static WebDriver driver;
-	static Properties	prop =new Properties();
-	public static void main(String arg[]) throws IOException, InterruptedException
-	{
+
+	WebDriver driverr;
+	static Properties	prop;
+
+	public LoginStepDefination() throws IOException {
 		prop =new Properties();
-	FileInputStream ip = new FileInputStream("D:/anil/Anil QA-TAE/test_data/mygit/zoebetaBDDFramework/src/main/java/propertyFile/ElementsData.properties");
-	prop.load(ip);
-	System.out.println("i am done" + prop);
-	}
-	@Before	
-	public void openBrowser() throws IOException, InterruptedException 
-	{
-	BrowserGenericfile browser=new BrowserGenericfile();
+		FileInputStream ip = new FileInputStream("D:/anil/Anil QA-TAE/test_data/mygit/zoebetaBDDFramework/src/main/java/propertyFile/ElementsData.properties");
+		prop.load(ip);
 	}
 	
+//	public static void main(String arg[]) throws IOException, InterruptedException
+//	{
+//		prop =new Properties();
+//	FileInputStream ip = new FileInputStream("D:/anil/Anil QA-TAE/test_data/mygit/zoebetaBDDFramework/src/main/java/propertyFile/ElementsData.properties");
+//	prop.load(ip);
+//	System.out.println("i am done" + prop);
+//	}
+	
+	
+//	@Before	
+//	public void openBrowser() throws IOException, InterruptedException 
+//	{
+//	BrowserGenericfile browser=new BrowserGenericfile();
+//	}
+//	
 //	@After
 //	public void closeBrowser()
 //	{
@@ -48,13 +58,16 @@ public class LoginStepDefination
 	
 	
 	
-@Given("^User is already on login page*")
+@Given("^User is already on login pagee*")
 public void user_already_on_loing_page() throws InterruptedException, IOException 
 {
-	prop =new Properties();
-	FileInputStream ip = new FileInputStream("D:/anil/Anil QA-TAE/test_data/mygit/zoebetaBDDFramework/src/main/java/propertyFile/ElementsData.properties");
-	prop.load(ip);
+	BrowserGenericfile browser=new BrowserGenericfile();
 	System.out.println(prop.getProperty("browser"));
+	System.out.println(prop.getProperty("sign_up"));
+	Thread.sleep(5000);
+	
+	driverr.findElement(By.xpath("//strong[.=\"SHOP \"]")).click();
+	
 	
 	//driver.get("https://zoe.menu/beta");
 	Thread.sleep(5000);
@@ -71,11 +84,11 @@ public void user_enter_username_and_password() throws InterruptedException {
 	System.out.println(prop.getProperty("browser")+" / it's me manual");
 	System.out.println(prop.getProperty("sign_up"));
 	
-    driver.findElement(By.xpath(prop.getProperty("sign_up"))).click();
+    driverr.findElement(By.xpath(prop.getProperty("sign_up"))).click();
     Thread.sleep(3000);
-    driver.findElement(By.xpath("//input[@name='in_email']")).sendKeys("prathap@steedserv.com");
-    driver.findElement(By.xpath("//input[@name='in_password']")).sendKeys("12345678");
-    driver.findElement(By.xpath("//button[.='Submit']")).click();
+    driverr.findElement(By.xpath("//input[@name='in_email']")).sendKeys("prathap@steedserv.com");
+    driverr.findElement(By.xpath("//input[@name='in_password']")).sendKeys("12345678");
+    driverr.findElement(By.xpath("//button[.='Submit']")).click();
 }
 
 @And("^user clicks on login buttion$")

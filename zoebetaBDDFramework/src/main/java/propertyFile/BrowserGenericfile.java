@@ -14,10 +14,7 @@ public class BrowserGenericfile {
 
 	public static WebDriver driver;
 	static Properties prop =new Properties();
-	public static void main(String[] args) throws InterruptedException, IOException {
-			
-
-	}
+	
 	
 	public BrowserGenericfile() throws IOException, InterruptedException {
 		FileInputStream ip = new FileInputStream("D:/anil/Anil QA-TAE/test_data/mygit/zoebetaBDDFramework/src/main/java/propertyFile/ElementsData.properties");
@@ -38,7 +35,9 @@ public class BrowserGenericfile {
 			Thread.sleep(3000);
 			driver= new FirefoxDriver();
 			driver.get(prop.getProperty("url"));
-			//driver.manage().window().maximize();
+			
 		}
+		
+		//driver.manage().window().maximize();
 	}
 }
