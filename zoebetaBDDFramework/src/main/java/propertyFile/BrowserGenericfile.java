@@ -1,12 +1,19 @@
 package propertyFile;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.codehaus.plexus.util.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import cucumber.api.Scenario;
 
 
 public class BrowserGenericfile {
@@ -45,4 +52,22 @@ public class BrowserGenericfile {
 		driver.get(prop.getProperty("url"));
 		//driver.manage().window().maximize();
 	}
+	
+	public static void tearDown(Scenario scenario) throws IOException
+	{
+		if (scenario.isFailed()) {
+			try {
+				byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+				File screenshot_with_scenario_name = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+				FileUtils.copyFile(screenshot_with_scenario_name, 
+						new File("./target/test-report/" + scenario.getName() + ".png"));
+				System.out.println(scenario.getName());
+				scenario.embed(screenshot, "image/png");				
+ 			}catch (WebDriverException e) {
+ 				System.out.println(e.getMessage()); 				
+ 			}
+		}
+		driver.close();
+	}
+
 }
