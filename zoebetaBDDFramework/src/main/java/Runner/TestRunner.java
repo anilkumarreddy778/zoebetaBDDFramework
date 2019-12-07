@@ -10,7 +10,7 @@ import cucumber.api.junit.Cucumber;
 		glue = {"stepDefination"},
 		tags = {"@negtive,@postive"},
 		format = {"pretty","html:target/cucumber-html-report"},
-		plugin = {"json:target/cucumber-report/cucumber.json","junit:target/cucumber-reports/Cucumber.xml"},
+//		plugin = {"json:target/cucumber-report/cucumber.json","junit:target/cucumber-reports/Cucumber.xml"},
 		monochrome= true)
 
 public class TestRunner {
